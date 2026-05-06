@@ -1,0 +1,58 @@
+<view class="container">
+  <!-- 顶部栏 -->
+  <view class="header">
+    <text class="title">收银计价</text>
+    <navigator url="/pages/goods/goods" class="manage-btn">商品管理</navigator>
+  </view>
+
+  <!-- 购物车统计 -->
+  <view class="stats-bar">
+    <text class="stats-text">共 {{itemCount}} 件商品</text>
+    <text class="stats-tip">扫码即加，自动累算</text>
+  </view>
+
+  <!-- 购物车列表（可滚动） -->
+  <scroll-view class="cart-list" scroll-y enhanced show-scrollbar="{{true}}">
+    <!-- 购物车条目 -->
+    <view wx:for="{{cartItems}}" wx:key="barcode" class="cart-item">
+      <view class="item-info">
+        <text class="item-name">{{item.name}}</text>
+        <text class="item-barcode">{{item.barcode}}</text>
+        <text class="item-price">¥{{item.price}}</text>
+      </view>
+      <view class="item-controls">
+        <view class="quantity-btn minus" bindtap="updateQuantity" data-barcode="{{item.barcode}}" data-delta="-1">-</view>
+        <text class="quantity">{{item.quantity}}</text>
+        <view class="quantity-btn plus" bindtap="updateQuantity" data-barcode="{{item.barcode}}" data-delta="1">+</view>
+        <view class="delete-btn" bindtap="removeItem" data-barcode="{{item.barcode}}">🗑️</view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:if="{{cartItems.length === 0}}" class="empty-cart">
+      <text class="empty-icon">🛒</text>
+      <text class="empty-text">购物车空空如也</text>
+      <text class="empty-tip">点击底部按钮扫码添加商品</text>
+    </view>
+  </scroll-view>
+
+  <!-- 底部总价栏 -->
+  <view class="footer-bar">
+    <view class="total-info">
+      <text class="total-label">合计</text>
+      <text class="total-price">{{totalPriceText}}</text>
+    </view>
+    <view class="action-buttons">
+      <button class="action-btn clear-btn" bindtap="clearCart" hover-class="btn-hover">清空</button>
+      <button class="action-btn round-btn" bindtap="roundDown" hover-class="btn-hover">抹零</button>
+    </view>
+  </view>
+
+  <!-- 🎯 底部固定扫码区域（重点优化） -->
+  <view class="scan-area" bindtap="onScanTap" hover-class="scan-hover">
+    <view class="scan-button">
+      <text class="scan-icon">📷</text>
+      <text class="scan-text">扫码添加商品</text>
+    </view>
+  </view>
+</view>

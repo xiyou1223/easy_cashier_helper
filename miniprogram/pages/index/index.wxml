@@ -1,0 +1,29 @@
+<view class="container">
+  <!-- 顶部标题 -->
+  <view class="header">
+    <text class="title">便利收银助手</text>
+    <text class="subtitle">快速扫码，轻松收银</text>
+  </view>
+
+  <!-- 两个大入口按钮 -->
+  <view class="entry-buttons">
+    <!-- 收银入口 -->
+    <view class="entry-btn cashier-btn" bindtap="goToCashier" hover-class="btn-hover">
+      <view class="btn-icon">🛒</view>
+      <text class="btn-text">收银计价</text>
+      <text class="btn-desc">扫码添加商品，快速结算</text>
+    </view>
+
+    <!-- 商品管理入口 -->
+    <view class="entry-btn goods-btn" bindtap="goToGoods" hover-class="btn-hover">
+      <view class="btn-icon">📦</view>
+      <text class="btn-text">商品管理</text>
+      <text class="btn-desc">管理商品信息，导入导出数据</text>
+    </view>
+  </view>
+
+  <!-- 底部信息 -->
+  <view class="footer">
+    <text class="footer-text">纯本地存储 · 完全免费 · 即开即用</text>
+  </view>
+</view>

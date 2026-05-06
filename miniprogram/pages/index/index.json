@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "便利收银助手",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f5f5f5",
+  "enablePullDownRefresh": false
+}

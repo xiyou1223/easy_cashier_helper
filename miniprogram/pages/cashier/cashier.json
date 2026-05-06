@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "收银计价",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f5f5f5",
+  "enablePullDownRefresh": false
+}
